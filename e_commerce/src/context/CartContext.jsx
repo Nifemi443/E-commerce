@@ -1,8 +1,8 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from 'react'
 
 const CartContext = createContext(null)
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const variantKey = (item) =>
   `${item.id}-${item.selectedColor ?? 'none'}-${item.selectedSize ?? 'none'}`
 
@@ -35,6 +35,10 @@ export function CartProvider({ children }) {
 
   function removeFromCart(key) {
     setCartItems((prev) => prev.filter((item) => variantKey(item) !== key))
+  }
+
+  function clearCart() {
+    setCartItems([])
   }
 
   function updateQuantity(key, newQty) {
@@ -82,6 +86,7 @@ export function CartProvider({ children }) {
     cartItems,
     addToCart,
     removeFromCart,
+    clearCart,
     updateQuantity,
     variantKey,
     totalQuantity,
