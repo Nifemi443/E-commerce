@@ -4,6 +4,8 @@ import Hero from './components/Hero'
 import NewArrivals from './components/NewArrivals'
 import ProductDetails from './pages/ProductDetails'
 import Wishlist from './pages/Wishlist'
+import Checkout from './pages/Checkout'
+import OrderSuccess from './pages/OrderSuccess'
 import CartDrawer from './components/CartDrawer'
 import './App.css'
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<OrderSuccess />} />
         </Routes>
         <CartDrawer />
       </BrowserRouter>

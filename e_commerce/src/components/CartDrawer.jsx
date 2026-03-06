@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { HiOutlineX, HiOutlineTrash, HiOutlineShoppingBag } from 'react-icons/hi'
 import { useCart, parsePrice } from '../context/CartContext'
 
 export default function CartDrawer() {
+  const navigate = useNavigate()
   const {
     cartItems,
     removeFromCart,
@@ -189,6 +191,7 @@ export default function CartDrawer() {
             </p>
             <button
               type="button"
+              onClick={() => { setIsCartOpen(false); navigate('/checkout') }}
               className="w-full bg-white py-4 text-sm font-bold tracking-tight text-slate-900 transition-colors hover:bg-slate-200"
             >
               Proceed to Checkout
